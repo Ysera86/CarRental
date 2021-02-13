@@ -17,17 +17,23 @@ namespace ReCapProject
             //Console.WriteLine("-------------------------------------------------");
             //GetCarsByColorId(carManager);
             //Console.WriteLine("-------------------------------------------------");
+            //AddCar(carManager);
+            //Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine(carManager.GetById(4).Name);
+        }
+
+        private static void AddCar(CarManager carManager)
+        {
             Car newCar = new Car
             {
-                  BrandId=2,
-                  ColorId=3,
-                  DailyPrice=95,
-                  Description="deneme",
-                  ModelYear=2019,
-                  Name="test Car"
+                BrandId = 2,
+                ColorId = 3,
+                DailyPrice = 95,
+                Description = "deneme",
+                ModelYear = 2019,
+                Name = "test Car"
             };
             Console.WriteLine(carManager.AddCar(newCar));
-            
         }
 
         private static void GetCarsByColorId(CarManager carManager)
