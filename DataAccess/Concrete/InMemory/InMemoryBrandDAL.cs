@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -24,7 +25,7 @@ namespace DataAccess.Concrete.InMemory
             Brand brandToDelete = _brands.SingleOrDefault(b => b.BrandId == brand.BrandId);
             if (brandToDelete != null)
             {
-                _brands.Add(brandToDelete); 
+                _brands.Add(brandToDelete);
             }
         }
 
@@ -33,14 +34,14 @@ namespace DataAccess.Concrete.InMemory
             _brands.Remove(brand);
         }
 
-        public List<Brand> GetAll()
+        public Brand Get(Expression<Func<Brand, bool>> filter)
         {
-            return _brands;
+            return _brands.SingleOrDefault(filter.Compile());
         }
 
-        public Brand GetById(int Id)
+        public List<Brand> GetAll(Expression<Func<Brand, bool>> filter = null)
         {
-            return _brands.SingleOrDefault(x => x.BrandId == Id);
+            return filter == null ? _brands : _brands.Where(filter.Compile()).ToList();
         }
 
         public void Update(Brand brand)
