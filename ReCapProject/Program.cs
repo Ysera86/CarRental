@@ -19,7 +19,7 @@ namespace ReCapProject
             //Console.WriteLine("-------------------------------------------------");
             //AddCar(carManager);
             //Console.WriteLine("-------------------------------------------------");
-            Console.WriteLine(carManager.GetById(4).Name);
+            Console.WriteLine(carManager.GetById(4).Data.Name);
         }
 
         private static void AddCar(CarManager carManager)
@@ -38,7 +38,7 @@ namespace ReCapProject
 
         private static void GetCarsByColorId(CarManager carManager)
         {
-            foreach (var car in carManager.GetCarsByColorId(1))
+            foreach (var car in carManager.GetCarsByColorId(1).Data)
             {
                 Console.WriteLine(car.Name);
             }
@@ -46,7 +46,7 @@ namespace ReCapProject
 
         private static void GetCarsByBrandId(CarManager carManager)
         {
-            foreach (var car in carManager.GetCarsByBrandId(1))
+            foreach (var car in carManager.GetCarsByBrandId(1).Data)
             {
                 Console.WriteLine(car.Name);
             }
@@ -54,7 +54,7 @@ namespace ReCapProject
 
         private static void GetAll(CarManager carManager)
         {
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetAll().Data)
             {
                 Console.WriteLine(car.Name);
             }
