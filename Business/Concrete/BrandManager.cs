@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,32 +18,50 @@ namespace Business.Concrete
             _brandDAL = brandDAL;
         }
 
-        public string Delete(Brand brand)
-        {
-            _brandDAL.Delete(brand);
-            return "brand deleted";
-        }
-
-        public List<Brand> GetAll()
-        {
-            return _brandDAL.GetAll();
-        }
-
-        public Brand GetById(int id)
-        {
-            return _brandDAL.Get(b => b.BrandId == id);
-        }
-
-        public string Insert(Brand brand)
+        public IResult Insert(Brand brand)
         {
             _brandDAL.Add(brand);
-            return "brand added";
+            return new SuccessResult(Messages.BrandAdded);
         }
 
-        public string Update(Brand brand)
+        public IResult Update(Brand brand)
         {
             _brandDAL.Update(brand);
-            return "brand deleted";
+            return new SuccessResult(Messages.BrandUpdated);
         }
+
+
+        public IResult Delete(Brand brand)
+        {
+            _brandDAL.Delete(brand);
+            return new SuccessResult(Messages.BrandDeleted);
+        }
+
+        IDataResult<List<Brand>> IBrandService.GetAll()
+        {
+            var brands = _brandDAL.GetAll();
+            if (brands != null && brands.Count > 0)
+            {
+                return new SuccessDataResult<List<Brand>>(brands, Messages.BrandsListed);
+            }
+            return new ErrorDataResult<List<Brand>>(Messages.BrandNotFoundToList);
+        }
+
+        IDataResult<Brand> IBrandService.GetById(int id)
+        {
+            var brand = _brandDAL.Get(b => b.BrandId == id);
+            if (brand != null)
+            {
+                return new SuccessDataResult<Brand>(brand, Messages.BrandListed);
+            }
+            else
+            {
+                return new ErrorDataResult<Brand>(Messages.BrandNotFoundToList);
+            }
+        }
+
+
+
+
     }
 }

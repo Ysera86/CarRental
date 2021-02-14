@@ -33,7 +33,7 @@ namespace ReCapProject
                 ModelYear = 2019,
                 Name = "test Car"
             };
-            Console.WriteLine(carManager.AddCar(newCar));
+            Console.WriteLine(carManager.Insert(newCar));
         }
 
         private static void GetCarsByColorId(CarManager carManager)
