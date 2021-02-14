@@ -24,5 +24,14 @@ namespace Business.Constants
         public static string CarListed = "Car listed.";
         public static string CarsNotFoundToList = "Cars not found.";
         public static string CarNotFoundToList = "No such Car found.";
+
+        public static string ColorAdded = "Color deleted.";
+        public static string ColorNotAdded = "Color couldn't be added.";
+        public static string ColorUpdated = "Color updated.";
+        public static string ColorDeleted = "Color deleted.";
+        public static string ColorsListed = "Colors listed.";
+        public static string ColorListed = "Color listed.";
+        public static string ColorsNotFoundToList = "Colors not found.";
+        public static string ColorNotFoundToList = "No such Color found.";
     }
 }

@@ -19,7 +19,7 @@ namespace ReCapProject
             //Console.WriteLine("-------------------------------------------------");
             //AddCar(carManager);
             //Console.WriteLine("-------------------------------------------------");
-            Console.WriteLine(carManager.GetById(4).Data.Name);
+            //Console.WriteLine(carManager.GetById(4).Data.Name);
         }
 
         private static void AddCar(CarManager carManager)
