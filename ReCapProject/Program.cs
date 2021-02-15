@@ -38,6 +38,7 @@ namespace ReCapProject
             RentalManager rentalManager = new RentalManager(new EfRentalDAL());
             //Rental rental = new Rental { CarId = 1, CustomerId = 1, RentDate = DateTime.Now };
             //RentACar(rentalManager, rental);
+            //Rental.Id = 2;
             //ReturnACar(rentalManager, rental);
 
             //Rental rental2 = new Rental { CarId = 1, CustomerId = 1, RentDate = DateTime.Now };
@@ -46,6 +47,7 @@ namespace ReCapProject
 
             Rental rental3 = new Rental { CarId = 3, CustomerId = 1, RentDate = DateTime.Now };
             Console.WriteLine(RentACar(rentalManager, rental3));
+            rental3.Id = 4;
             Console.WriteLine(ReturnACar(rentalManager, rental3));
 
             foreach (var rentalDetail in rentalManager.ListAllRentalInfo().Data)
