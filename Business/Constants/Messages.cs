@@ -23,7 +23,7 @@ namespace Business.Constants
         public static string CarsListed = "Cars listed.";
         public static string CarListed = "Car listed.";
         public static string CarsNotFoundToList = "Cars not found.";
-        public static string CarNotFoundToList = "No such Car found.";
+        public static string CarNotFoundToList = "No such car found.";
 
         public static string ColorAdded = "Color deleted.";
         public static string ColorNotAdded = "Color couldn't be added.";
@@ -32,6 +32,39 @@ namespace Business.Constants
         public static string ColorsListed = "Colors listed.";
         public static string ColorListed = "Color listed.";
         public static string ColorsNotFoundToList = "Colors not found.";
-        public static string ColorNotFoundToList = "No such Color found.";
+        public static string ColorNotFoundToList = "No such color found.";
+
+        public static string UserAdded = "User deleted.";
+        public static string UserNotAdded = "User couldn't be added.";
+        public static string UserUpdated = "User updated.";
+        public static string UserDeleted = "User deleted.";
+        public static string UsersListed = "Users listed.";
+        public static string UserListed = "User listed.";
+        public static string UsersNotFoundToList = "Users not found.";
+        public static string UserNotFoundToList = "No such user found.";
+
+        public static string CustomerAdded = "Customer deleted.";
+        public static string CustomerNotAddedUserId = "Customer can't be added without a user assigned.";
+        public static string CustomerUpdated = "Customer updated.";
+        public static string CustomerDeleted = "Customer deleted.";
+        public static string CustomersListed = "Customers listed.";
+        public static string CustomerListed = "Customer listed.";
+        public static string CustomersNotFoundToList = "Customers not found.";
+        public static string CustomerNotFoundToList = "No such customer found.";
+
+        public static string RentalAdded = "Rental deleted.";
+        public static string RentalNotAddedUserId = "Rental can't be added without a user assigned.";
+        public static string RentalUpdated = "Rental updated.";
+        public static string RentalDeleted = "Rental deleted.";
+        public static string RentalsListed = "Rentals listed.";
+        public static string RentalListed = "Rental listed.";
+        public static string RentalsNotFoundToList = "Rentals not found.";
+        public static string RentalNotFoundToList = "No such rental found.";
+
+        public static string CarAvailable = "Car is available for rental.";
+        public static string CarRented = "Car rented.";
+        public static string CarReturned = "Car returned.";
+        public static string CarNotReturned = "Can't rent a car which is not returned.";
+        public static string CarNotRented = "Car not rented.";
     }
 }
