@@ -49,9 +49,9 @@ namespace Business.Concrete
             if (!IsCarAvailable(rental).Success)
             {
                 _rentalDAL.Update(rental);
-                return new SuccessResult(Messages.CarRented);
+                return new SuccessResult(Messages.CarReturned);
             }
-            return new ErrorResult(Messages.CarNotRented);
+            return new ErrorResult(Messages.CarNotReturned);
         }
 
         public IDataResult<List<RentalDetailDTO>> ListAllRentalInfo()
@@ -59,9 +59,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDAL.GetRentalDetails());
         }
 
-        public IDataResult<List<RentalDetailDTO>> ListRentalInfoOfCar(Car car)
+        public IDataResult<List<RentalDetailDTO>> ListRentalInfoOfACar(int carId)
         {
-            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDAL.GetRentalDetailsOfCar(r => r.CarId == car.Id));
+            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDAL.GetRentalDetailsOfCar(r => r.CarId == carId));
         }
 
 

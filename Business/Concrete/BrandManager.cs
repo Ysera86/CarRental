@@ -49,7 +49,7 @@ namespace Business.Concrete
 
         IDataResult<Brand> IBrandService.GetById(int id)
         {
-            var brand = _brandDAL.Get(b => b.BrandId == id);
+            var brand = _brandDAL.Get(b => b.Id == id);
             if (brand != null)
             {
                 return new SuccessDataResult<Brand>(brand, Messages.BrandListed);
