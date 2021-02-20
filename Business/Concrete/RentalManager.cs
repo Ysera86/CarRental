@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -38,6 +40,8 @@ namespace Business.Concrete
         {
             if (IsCarAvailable(rental).Success)
             {
+                ValidationTool.Validate(new RentalValidator(), rental);
+
                 _rentalDAL.Add(rental);
                 return new SuccessResult(Messages.CarRented);
             }

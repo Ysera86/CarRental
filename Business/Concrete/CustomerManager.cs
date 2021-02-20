@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -37,12 +39,18 @@ namespace Business.Concrete
             //    return new SuccessResult(Messages.CustomerAdded);
             //}
             //return new ErrorResult(Messages.CustomerNotAddedUserId);
-            if (customer.UserId > 0)
-            {
-                _customerDAL.Add(customer);
-                return new SuccessResult(Messages.CustomerAdded);
-            }
-            return new ErrorResult(Messages.CustomerNotAddedUserId);
+
+            //if (customer.UserId > 0)
+            //{
+            //    _customerDAL.Add(customer);
+            //    return new SuccessResult(Messages.CustomerAdded);
+            //}
+            //return new ErrorResult(Messages.CustomerNotAddedUserId);
+
+            ValidationTool.Validate(new CustomerValidator(), customer);
+
+            _customerDAL.Add(customer);
+            return new SuccessResult(Messages.CustomerAdded);
         }
 
         public IResult Update(Customer customer)
