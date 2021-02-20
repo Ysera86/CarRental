@@ -31,6 +31,12 @@ namespace Business.Concrete
 
         public IResult Insert(Customer customer)
         {
+            //if (customer.UserId > 0)
+            //{
+            //    _customerDAL.Add(customer);
+            //    return new SuccessResult(Messages.CustomerAdded);
+            //}
+            //return new ErrorResult(Messages.CustomerNotAddedUserId);
             if (customer.UserId > 0)
             {
                 _customerDAL.Add(customer);

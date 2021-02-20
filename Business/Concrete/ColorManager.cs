@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -25,15 +27,20 @@ namespace Business.Concrete
 
         public IResult Insert(Color color)
         {
-            if (color.Name.Length > 2)
-            {
-                _colorDAL.Add(color);
-                return new SuccessResult(Messages.ColorAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.ColorNotAdded);
-            }
+            //if (color.Name.Length > 2)
+            //{
+            //    _colorDAL.Add(color);
+            //    return new SuccessResult(Messages.ColorAdded);
+            //}
+            //else
+            //{
+            //    return new ErrorResult(Messages.ColorNotAdded);
+            //}
+
+            ValidationTool.Validate(new ColorValidator(), color);
+
+            _colorDAL.Add(color);
+            return new SuccessResult(Messages.ColorAdded);
         }
 
         public IResult Update(Color color)
