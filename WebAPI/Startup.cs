@@ -31,19 +31,21 @@ namespace WebAPI
         {
             services.AddControllers();
 
-            //..
-            services.AddSingleton<IBrandService, BrandManager>();
-            services.AddSingleton<IBrandDAL, EfBrandDAL>();
-            services.AddSingleton<ICarService, CarManager>();
-            services.AddSingleton<ICarDAL, EfCarDAL>();
-            services.AddSingleton<IColorService, ColorManager>();
-            services.AddSingleton<IColorDAL, EfColorDAL>();
-            services.AddSingleton<ICustomerService, CustomerManager>();
-            services.AddSingleton<ICustomerDAL, EfCustomerDAL>();
-            services.AddSingleton<IUserService, UserManager>();
-            services.AddSingleton<IUserDAL, EfUserDAL>();
-            services.AddSingleton<IRentalService, RentalManager>();
-            services.AddSingleton<IRentalDAL, EfRentalDAL>();
+            // Business. Manage NuGet pckgs > Autofac ve Autofac.Extras.DynamicProxy indir
+            //..>>> Business.DependencyResolvers.Autofac . Autofac.Module'den türet class ve override Load
+            // sonra da bu porje.Program.cs içinde .NetCore snn IoC containerýný deðil Autofac'inkini kullanýcam (çnk onda AOP de var) de
+            //services.AddSingleton<IBrandService, BrandManager>();
+            //services.AddSingleton<IBrandDAL, EfBrandDAL>();
+            //services.AddSingleton<ICarService, CarManager>();
+            //services.AddSingleton<ICarDAL, EfCarDAL>();
+            //services.AddSingleton<IColorService, ColorManager>();
+            //services.AddSingleton<IColorDAL, EfColorDAL>();
+            //services.AddSingleton<ICustomerService, CustomerManager>();
+            //services.AddSingleton<ICustomerDAL, EfCustomerDAL>();
+            //services.AddSingleton<IUserService, UserManager>();
+            //services.AddSingleton<IUserDAL, EfUserDAL>();
+            //services.AddSingleton<IRentalService, RentalManager>();
+            //services.AddSingleton<IRentalDAL, EfRentalDAL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
