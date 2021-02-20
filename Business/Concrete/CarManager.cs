@@ -1,8 +1,9 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
-using Core.Utilities;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -20,6 +21,7 @@ namespace Business.Concrete
             _carDAL = carDAL;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Insert(Car car)
         {
             // FluentValidation yapıldı > ValidationRules.FluentValidation.CarValidator
@@ -43,7 +45,8 @@ namespace Business.Concrete
             //    throw new ValidationException(result.Errors);
             //}
 
-            ValidationTool.Validate(new CarValidator(), car);
+            //  [ValidationAspect(typeof(Car))]eklendi. buna gerek yok artık.
+            // ValidationTool.Validate(new CarValidator(), car);
 
             _carDAL.Add(car);
             return new SuccessResult(Messages.CarAdded);

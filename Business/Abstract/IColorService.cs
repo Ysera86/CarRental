@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
-using Core.Utilities;
+using Core.Utilities.Results;
 using Entities.Concrete;
 
 namespace Business.Abstract

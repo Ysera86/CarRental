@@ -1,8 +1,9 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
-using Core.Utilities;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -36,11 +37,13 @@ namespace Business.Concrete
             }
             return new SuccessResult(Messages.CarAvailable);
         }
+
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult RentACar(Rental rental)
         {
             if (IsCarAvailable(rental).Success)
             {
-                ValidationTool.Validate(new RentalValidator(), rental);
+                //ValidationTool.Validate(new RentalValidator(), rental);
 
                 _rentalDAL.Add(rental);
                 return new SuccessResult(Messages.CarRented);
