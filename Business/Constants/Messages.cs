@@ -66,5 +66,17 @@ namespace Business.Constants
         public static string CarReturned = "Car returned.";
         public static string CarNotReturned = "Can't rent a car which is not returned.";
         public static string CarNotRented = "Car not rented.";
+
+        #region CarImage
+        public static string CarImageAdded = "Fotoğraf Eklendi";
+        public static string ColoCarImageCantAdd = "Fotoğraf Eklenemedi";
+        public static string CarImageUpdated = "Fotoğraf Güncellendi";
+        public static string CarImageCantUpdate = "Fotoğraf Güncellenemedi";
+        public static string CarImageDeleted = "Fotoğraf Silindi";
+        public static string CarImageCantDelete = "Fotoğraf Silinemedi";
+        public static string CarImageListed = "Fotoğraf listelendi";
+        public static string CarImageCantList = "Fotoğraf listelenemdi";
+        public static string CarImageCaountLimitFull = "Fotoğraf ekleme limiti aşıldı.";
+        #endregion
     }
 }
